@@ -9,6 +9,9 @@ data/
 # 処理済みフォルダ
 processed/
 
+# zipファイル
+processed.zip
+
 # 一般的な除外ファイル
 *.pyc
 __pycache__/
