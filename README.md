@@ -2,9 +2,9 @@
 
 oak-dで撮影したデータ（spectacularAI形式）をGoogle Colabにアップロードし、nerfstudioで学習・可視化するまでの一連の手順をまとめたものです。
 
-## 🎯 フロー概要
+## フロー概要
 1. **ローカル環境セットアップ** - spectacularAIのインストール
-2. **データ撮影** - oak-dでデータ収集
+2. **データ撮影** - oak-dでspectacularAIをつかってデータ収集
 3. **データ処理・変換** - NerfStudio形式に変換・プレビュー
 4. **Google Colabでの学習** - クラウド環境での高速学習
 5. **結果ダウンロード・確認** - 学習済みモデルの取得と可視化
@@ -41,13 +41,13 @@ sai-cli record oak
 ### 3D プレビューで品質確認
 ```bash
 # 3次元ビューワでプレビュー（品質確認）
-sai-cli process --device_preset oak-d --preview3d .\data\2025-08-24_10-37-14 .\processed
+sai-cli process --device_preset oak-d --preview3d .\data\2025-08-24_11-24-17 .\processed
 ```
 
 ### NerfStudio形式に変換
 ```bash
 # NerfStudio形式に変換
-sai-cli process --device_preset oak-d --format nerfstudio .\data\2025-08-24_10-37-14 .\processed
+sai-cli process --device_preset oak-d --format nerfstudio .\data\2025-08-24_11-24-17 .\processed
 ```
 
 **生成されるファイル構造:**
@@ -69,14 +69,14 @@ processed/
 2. Google Colab で `colab_nerfstudio.ipynb` を開く
 3. セル2でzipファイルをアップロード
 
-### 🚀 Colabノートブック機能
+### Colabノートブック機能
 
-**改善された機能（v2.0）:**
-- 🔧 **Windows互換性**: パス区切り文字の自動修正
-- 📊 **GPU監視**: リアルタイムGPUメモリ使用量表示  
-- ⚡ **エラーハンドリング**: 各段階での詳細なエラー診断
-- 💾 **ファイル管理**: サイズ確認付きの選択的ダウンロード
-- ⏱️ **進捗表示**: 経過時間とステップ数の監視
+**改善された機能:**
+- **Windows互換性**: パス区切り文字の自動修正
+- **GPU監視**: リアルタイムGPUメモリ使用量表示  
+- **エラーハンドリング**: 各段階での詳細なエラー診断
+- **ファイル管理**: サイズ確認付きの選択的ダウンロード
+- **進捗表示**: 経過時間とステップ数の監視
 
 **セル構成:**
 1. **環境セットアップ** - GPU確認・PyTorch・nerfstudioインストール
@@ -104,7 +104,7 @@ ns-train nerfacto --data path/to/processed --load-dir path/to/outputs
 
 ---
 
-## 🛠️ トラブルシューティング
+## トラブルシューティング
 
 ### よくある問題と解決方法
 
@@ -122,7 +122,7 @@ CUDA available: False
 
 **3. 画像数不足**
 ```
-⚠️ 画像数が少ないため、学習結果の品質が低い可能性があります
+画像数が少ないため、学習結果の品質が低い可能性があります
 ```
 → より多くの角度からデータを撮影
 
@@ -131,7 +131,7 @@ CUDA available: False
 
 ---
 
-## 📋 システム要件
+## システム要件
 
 ### ローカル環境
 - Python 3.8+ 
@@ -144,7 +144,7 @@ CUDA available: False
 
 ---
 
-## 📚 参考資料
+## 参考資料
 
 - [nerfstudio公式ドキュメント](https://docs.nerf.studio/)
 - [spectacularAI公式ドキュメント](https://docs.spectacularai.com/)
