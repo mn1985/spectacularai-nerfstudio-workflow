@@ -1,0 +1,18 @@
+インストール:
+pip install spectacularAI[full]
+
+
+撮影：
+sai-cli record oak
+ # [q]キーで終了
+
+sai-cli process my-recording --format nerfstudio --output my-dataset
+
+・3次元ビューワで見る
+sai-cli process --device_preset oak-d --preview3d .\data\2025-08-24_10-37-14 .\processed
+
+・NerfStudio形式に変換
+sai-cli process --device_preset oak-d --format nerfstudio .\data\2025-08-24_10-37-14 .\processed
+
+
+
