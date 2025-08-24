@@ -1,13 +1,20 @@
-# oak-d × spectacularAI × nerfstudio ワークフロー
+# oak-d × spectacularAI × nerfstudio ワークフロー## 5. Colab上でnerfstudioをセットアップ・学習
+- Colabノートブック（`colab_nerfstudio.ipynb`）を参照してください。
+- GPU対応PyTorchとnerfstudioが自動インストールされます
+- データ確認後、学習が自動実行されます
 
-このリポジトリは、oak-dで撮影したデータ（spectacularAI形式）をGoogle Colabにアップロードし、nerfstudioで学習・可視化するまでの一連の手順をまとめたものです。
+## 6. 結果をダウンロード
+- Colabのファイルダウンロード機能で、学習済みモデル（.ckpt）や設定ファイルをローカルに保存します。
+- ブラウザのダウンロードフォルダに保存されます
+
+## 7. ローカルでビューワで確認、oak-dで撮影したデータ（spectacularAI形式）をGoogle Colabにアップロードし、nerfstudioで学習・可視化するまでの一連の手順をまとめたものです。
 
 ## フロー概要
-1. oak-dでデータ撮影（spectacularAI形式）
-2. データをGoogle Colabにアップロード
-3. Colab上でnerfstudioをセットアップ
-4. spectacularAIデータをnerfstudio用に変換（必要に応じて）
-5. nerfstudioで学習
+1. ローカル環境でspectacularAIのインストール
+2. oak-dでデータ撮影（spectacularAI形式）
+3. データ処理・NerfStudio形式に変換
+4. データをGoogle Colabにアップロード
+5. Colab上でnerfstudioをセットアップ・学習
 6. 結果をダウンロード
 7. ローカルでビューワで確認
 
@@ -38,10 +45,12 @@ sai-cli process --device_preset oak-d --format nerfstudio .\data\2025-08-24_10-3
 ---
 
 ## 4. データをGoogle Colabにアップロード
-- Colabのファイルアップローダを使い、`data/`フォルダごとアップロードします。
+- `processed/` フォルダを右クリック → 圧縮 → `processed.zip` を作成
+- Colabのファイルアップローダを使い、`processed.zip` をアップロード
+- ノートブックが自動で展開します
 
 ## 5. Colab上でnerfstudioをセットアップ
-- Colabノートブック（`colab_nerfstudio.ipynb`）を参照してください。
+- Colabノートブック（`colab_nerfstudio.ipynb`）を参照してく ださい。
 
 
 ## 6. nerfstudioで学習
